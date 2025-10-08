@@ -5,11 +5,18 @@
 {% block content %}
 <h2>Live Traffic Simulation</h2>
 <div id="traffic-dashboard">
-    <div>North-South: <span id="ns-count">0</span></div>
-    <div>East-West: <span id="ew-count">0</span></div>
-    <div id="signals">
-        <div id="ns-light">N-S Light: 🔴</div>
-        <div id="ew-light">E-W Light: 🔴</div>
+    <div class="card">
+        <div class="card-title">North-South</div>
+        <div class="metric"><span id="ns-count">0</span> vehicles</div>
+    </div>
+    <div class="card">
+        <div class="card-title">East-West</div>
+        <div class="metric"><span id="ew-count">0</span> vehicles</div>
+    </div>
+    <div id="signals" class="card">
+        <div class="card-title">Signals</div>
+        <div class="signal-row"><span class="badge" id="ns-light">N-S: 🔴</span></div>
+        <div class="signal-row"><span class="badge" id="ew-light">E-W: 🔴</span></div>
     </div>
 </div>
 {% endblock %}

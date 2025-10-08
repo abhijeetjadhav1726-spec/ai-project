@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}About - Adaptive Traffic Light System{% endblock %}
+
+{% block content %}
+<h2>💡 How It Works: Adaptive Logic Explained</h2>
+<p class="intro-text">Traditional traffic lights operate on fixed cycles. This system uses real-time traffic density and simple if-else rules to dynamically adjust signals.</p>
+<div class="card" style="margin-top:12px">
+    <div class="card-title">Key Ideas</div>
+    <ul>
+        <li>Read vehicle counts for North–South and East–West.</li>
+        <li>Pick green for the direction with more vehicles.</li>
+        <li>Refresh every 2 seconds to reflect new data.</li>
+    </ul>
+    <p class="intro-text">The goal is smooth flow with minimal waiting time, using simple logic that is easy to reason about.</p>
+    <a href="/simulation" class="button primary" style="margin-top:8px">Try the Live Simulation</a>
+    <a href="/" class="button secondary" style="margin-top:8px">Back to Home</a>
+    
+</div>
+{% endblock %}
