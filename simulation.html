@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Live Simulation - Adaptive Traffic Light System{% endblock %}
+
+{% block content %}
+<h2>Live Traffic Simulation</h2>
+<div id="traffic-dashboard">
+    <div>North-South: <span id="ns-count">0</span></div>
+    <div>East-West: <span id="ew-count">0</span></div>
+    <div id="signals">
+        <div id="ns-light">N-S Light: 🔴</div>
+        <div id="ew-light">E-W Light: 🔴</div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function updateTraffic() {
+    fetch('/traffic-data')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('ns-count').innerText = data.north_south;
+            document.getElementById('ew-count').innerText = data.east_west;
+            // simple logic for lights
+            document.getElementById('ns-light').innerText = data.north_south >= data.east_west ? 'N-S Light: 🟢' : 'N-S Light: 🔴';
+            document.getElementById('ew-light').innerText = data.east_west > data.north_south ? 'E-W Light: 🟢' : 'E-W Light: 🔴';
+        });
+}
+setInterval(updateTraffic, 2000);
+updateTraffic();
+</script>
+{% endblock %}
